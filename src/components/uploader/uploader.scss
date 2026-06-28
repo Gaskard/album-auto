@@ -1,0 +1,11 @@
+.drop {
+  height: 200px;
+  width: 500px;
+  border: 2px dashed #000;
+  &-active {
+    border: 2px dashed red;
+  }
+  &__input {
+    display: none;
+  }
+}
