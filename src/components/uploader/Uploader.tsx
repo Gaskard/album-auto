@@ -1,21 +1,14 @@
 import './uploader.scss'
+import * as React from 'react'
+import type {IProcessedFile, IUploaderProps} from '../../types/types.ts'
 import {useRef, useState} from 'react';
 
-interface IProcessedFile {
-  file: File,
-  url: string,
-  width: number,
-  height: number
-  orientation: 'horizontal' | 'vertical'
-}
-
-const Uploader = () => {
+const Uploader = ({files, setFiles}: IUploaderProps ) => {
 
   const inputRef = useRef(null)
   const [isDragging, setIsDragging] = useState(false)
-  const [files, setFiles] = useState<IProcessedFile[]>([])
 
-  const handleDragOver = (e) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
     setIsDragging(true)
   }
@@ -24,7 +17,7 @@ const Uploader = () => {
     setIsDragging(false)
   }
 
-  const handleDrop = async (e) => {
+  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
     setIsDragging(false)
     const result = await processFiles(e.dataTransfer.files)
