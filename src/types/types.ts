@@ -22,6 +22,8 @@ export interface ILayoutSlot {
 }
 
 export interface ILayoutTemplate {
+  id: string,
+  name: string,
   column: number,
   row: number,
   slots: ILayoutSlot[],
