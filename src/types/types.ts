@@ -28,3 +28,9 @@ export interface ILayoutTemplate {
   row: number,
   slots: ILayoutSlot[],
 }
+
+export interface ILayoutPickerProps {
+  templates: ILayoutTemplate[],
+  layout: string | null,
+  setLayout: (layout: string) => void,
+}
