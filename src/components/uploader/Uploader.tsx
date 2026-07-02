@@ -3,7 +3,7 @@ import * as React from 'react'
 import type {IProcessedFile, IUploaderProps} from '../../types/types.ts'
 import {useRef, useState} from 'react';
 
-const Uploader = ({files, setFiles}: IUploaderProps ) => {
+const Uploader = ({files, setFiles, setModalOpen}: IUploaderProps ) => {
 
   const inputRef = useRef(null)
   const [isDragging, setIsDragging] = useState(false)
@@ -22,6 +22,7 @@ const Uploader = ({files, setFiles}: IUploaderProps ) => {
     setIsDragging(false)
     const result = await processFiles(e.dataTransfer.files)
     setFiles(result)
+    setModalOpen(true)
     console.log('Файлы получены')
   }
 

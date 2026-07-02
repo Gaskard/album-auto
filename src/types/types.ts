@@ -11,6 +11,7 @@ export interface IProcessedFile {
 export interface IUploaderProps {
   files: IProcessedFile[],
   setFiles: (files: IProcessedFile[]) => void,
+  setModalOpen: (modalOpen: boolean) => void,
 }
 
 export interface ILayoutSlot {
